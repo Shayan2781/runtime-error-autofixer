@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Live Demo</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="wide">
+  <nav id="site-nav"></nav>
+
+  <header>
+    <h1>Error Dashboard</h1>
+    <p class="subtitle">
+      History of captured errors for project <code id="project-key">live-demo</code>
+    </p>
+  </header>
+
+  <main>
+    <p id="status">Loading…</p>
+
+    <div class="stats" id="stats"></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Error</th>
+          <th>Occurrences</th>
+          <th>First seen</th>
+          <th>Last seen</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="rows">
+        <tr><td colspan="5" class="empty">Loading…</td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>

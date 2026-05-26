@@ -1,0 +1,14 @@
+node_modules
+storage/*.sqlite
+storage/sourcemaps
+.env
+.env.*
+.git
+.gitignore
+latex_docs
+example_docs
+*.log
+.DS_Store
+.vscode
+.idea
+coverage

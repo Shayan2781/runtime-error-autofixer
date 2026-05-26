@@ -1,0 +1,91 @@
+.stats {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin-bottom: 1rem;
+}
+
+.stat {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat .num {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #7dd3fc;
+}
+
+.stat .label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #334155;
+}
+
+th {
+  background: #0f172a;
+  color: #7dd3fc;
+  font-size: 0.85rem;
+}
+
+td {
+  font-size: 0.85rem;
+  vertical-align: top;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.mono {
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+}
+
+.muted {
+  color: #94a3b8;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: #334155;
+}
+
+.badge.open {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+.empty {
+  padding: 2rem;
+  text-align: center;
+  color: #64748b;
+}
+
+#status {
+  margin-bottom: 1rem;
+  color: #93c5fd;
+  font-size: 0.9rem;
+}

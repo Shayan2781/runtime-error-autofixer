@@ -1,0 +1,49 @@
+{
+  "name": "runtime-error-autofixer",
+  "version": "0.1.0",
+  "description": "Runtime Error Auto-Fixer for Web Apps - Captures client-side errors, maps via source maps, proposes fixes via LLM, and creates PR/MR",
+  "type": "module",
+  "main": "server/src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<username>/runtime-error-autofixer.git"
+  },
+  "scripts": {
+    "dev": "node --watch server/src/index.js",
+    "start": "node server/src/index.js",
+    "build:live-demo": "node scripts/build-live-demo.mjs",
+    "serve:live-demo": "npx --yes serve . -p 8080",
+    "demo:live": "npm run build:live-demo && echo '\n→ Terminal 1: npm run dev\n→ Terminal 2: npm run serve:live-demo\n→ Browser: http://localhost:8080/examples/live-demo/\n→ Guide: docs/LIVE-DEMO-WALKTHROUGH.md\n'",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,json,md}\""
+  },
+  "keywords": [
+    "error-tracking",
+    "source-maps",
+    "llm",
+    "auto-fix",
+    "runtime-errors"
+  ],
+  "author": "Shayan Ahmadi",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@jridgewell/trace-mapping": "^0.3.31",
+    "better-sqlite3": "^12.4.1",
+    "cors": "^2.8.5",
+    "diff": "^8.0.2",
+    "express": "^4.18.2",
+    "multer": "^2.0.2",
+    "pino": "^8.17.2",
+    "simple-git": "^3.30.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "eslint": "^8.57.0",
+    "pino-pretty": "^10.3.1",
+    "prettier": "^3.2.5"
+  }
+}

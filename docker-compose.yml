@@ -1,0 +1,24 @@
+services:
+  error-fixer:
+    build: .
+    container_name: runtime-error-auto-fixer
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: file:./storage/data.sqlite
+      STORAGE_DIR: ./storage
+    volumes:
+      - error-fixer-data:/app/storage
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  error-fixer-data:

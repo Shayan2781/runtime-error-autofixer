@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Storage and database
+storage/*.sqlite
+storage/*.sqlite-journal
+storage/*.db
+storage/sourcemaps/
+!storage/.gitkeep
+!storage/README.md
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pino-*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Build outputs (if any)
+dist/
+build/
+*.map
+
+# Coverage (if tests added later)
+coverage/
+.nyc_output/
+

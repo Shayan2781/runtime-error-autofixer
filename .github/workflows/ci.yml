@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  lint-and-smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Smoke test server
+        env:
+          LLM_PROVIDER: mock
+          PORT: 3000
+        run: |
+          node server/src/index.js &
+          SERVER_PID=$!
+          sleep 3
+          curl -sf http://localhost:3000/health
+          curl -sf -X POST http://localhost:3000/api/v1/errors \
+            -H "Content-Type: application/json" \
+            -d '{"projectKey":"ci-test","rawStack":"Error: smoke test"}'
+          kill $SERVER_PID

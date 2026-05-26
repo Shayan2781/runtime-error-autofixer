@@ -1,0 +1,160 @@
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: #7dd3fc;
+}
+
+.card p.hint {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin: 0 0 1rem;
+}
+
+button {
+  background: #0369a1;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 0.4rem 0.4rem 0;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background: #0284c7;
+}
+
+button.crash {
+  background: #b91c1c;
+}
+
+button.crash:hover {
+  background: #dc2626;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.kv dt,
+.kv dd {
+  margin: 0;
+}
+
+.kv .k {
+  color: #64748b;
+}
+
+.kv .v {
+  font-family: ui-monospace, monospace;
+  color: #e2e8f0;
+  word-break: break-all;
+}
+
+.log {
+  background: #020617;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.log div {
+  padding: 0.15rem 0;
+}
+
+.log .ok {
+  color: #4ade80;
+}
+
+.log .err {
+  color: #f87171;
+}
+
+.log .info {
+  color: #93c5fd;
+}
+
+.log .warn {
+  color: #fbbf24;
+}
+
+#result {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background: #020617;
+  border-radius: 6px;
+  min-height: 2rem;
+}
+
+#pipeline-status {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  background: #020617;
+  border: 1px solid #334155;
+  font-size: 0.9rem;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+#pipeline-status.loading {
+  border-color: #0369a1;
+  color: #93c5fd;
+  background: linear-gradient(90deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+#pipeline-status.ok {
+  border-color: #059669;
+  color: #4ade80;
+}
+
+#pipeline-status.err {
+  border-color: #b91c1c;
+  color: #f87171;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}

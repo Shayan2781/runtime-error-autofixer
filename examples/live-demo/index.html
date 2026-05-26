@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Demo - Error Auto-Fixer</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+  <nav id="site-nav"></nav>
+
+  <header>
+    <h1>Live Demo</h1>
+    <p class="subtitle">
+      Trigger a crash → auto analyze, patch &amp; PR.
+      View error history on the <a id="dashboard-link" href="#">dashboard</a>.
+    </p>
+  </header>
+
+  <main>
+    <div class="grid">
+      <section class="card">
+        <h2>App</h2>
+        <p class="hint">Each button runs buggy code. The auto-fix pipeline starts after capture.</p>
+        <button id="btn-load-dashboard" class="crash">Fetch Items (null API)</button>
+        <button id="btn-calculate" class="crash">Calculate Total</button>
+        <button id="btn-profile" class="crash">Show Profile</button>
+        <div id="result"></div>
+      </section>
+
+      <section class="card">
+        <h2>Auto pipeline</h2>
+        <dl class="kv">
+          <dt class="k">Error ID</dt><dd class="v" id="val-error-id">-</dd>
+          <dt class="k">Analysis ID</dt><dd class="v" id="val-analysis-id">-</dd>
+          <dt class="k">PR URL</dt><dd class="v" id="val-pr-url">-</dd>
+        </dl>
+        <div id="pipeline-status">Waiting for an error…</div>
+      </section>
+    </div>
+
+    <div class="stack">
+      <section class="card">
+        <h2>Status</h2>
+        <dl class="kv">
+          <dt class="k">Project key</dt><dd class="v" id="cfg-project">-</dd>
+          <dt class="k">Release</dt><dd class="v" id="cfg-release">-</dd>
+          <dt class="k">Source map</dt><dd class="v" id="cfg-sourcemap">-</dd>
+          <dt class="k">SDK</dt><dd class="v" id="cfg-sdk">-</dd>
+        </dl>
+      </section>
+
+      <section class="card">
+        <h2>Log</h2>
+        <div class="log" id="log"></div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>
